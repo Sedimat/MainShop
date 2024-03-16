@@ -1,0 +1,49 @@
+{% extends "Shop/base.html" %}
+
+{% block base %}
+
+<div class="content">
+
+        <div class="user_navig">
+
+            <img class="avatar" src="{{ user_inf.avatar.url }}">
+            <p class="user_text">{{ user.username}}</p>
+            <p class="user_wallet">Баланс: {{ user_inf.wallet }} Грн</p>
+            <p class="title0">{{ user_inf.description }}</p>
+
+        </div>
+
+        <div class="product_big">
+            {% for buys in user_buys %}
+                <div class="buying">
+                    <img class="min_img" src="{{ buys.product.img.url }}">
+                    <table>
+                        <tr>
+                            <td class="user_inf" width="120">Товар</td>
+                            <td class="user_inf" width="260">Ключ</td>
+                            <td class="user_inf" width="100">Ціна</td>
+                            <td class="user_inf" width="230">Дата</td>
+                        </tr>
+                        <tr>
+                            <td><a class="user_inf" href="{% url 'product' id=buys.product.id %}">{{ buys.product.name|slice:":12" }}</a></td>
+                            <td><p class="user_inf" >{{ buys.keys }}</p></td>
+                            <td><p class="user_inf" >{{ buys.price }}</p></td>
+                            <td><p class="user_inf" >{{ buys.timestamp }}</p></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            {% endfor %}
+
+
+
+
+
+        </div>
+
+    <div class="clear"></div>
+
+</div>
+
+{% endblock %}

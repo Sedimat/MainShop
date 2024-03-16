@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    {% load static %}
+
+    <link href="{% static 'Shop/css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="/media/ico.png" type="image/x-icon">
+</head>
+<body>
+    <div class="head">
+        <nav>
+             <ul id="nav">
+                  <li id="li"><a class="head_a" href="{% url 'index' %}">SHOP</a></li>
+                  <li id="li"><a class="head_a" href="{% url 'index' %}">SHOP</a></li>
+                  <li id="li"><a class="head_a" href="{% url 'index' %}">SHOP</a></li>
+                  <li id="li"><a class="head_a" href="{% url 'login' %}">login</a></li>
+
+-->
+            </ul>
+        </nav>
+
+    </div>
+    <div class="logo">
+        <a class="head_a" href="{% url 'index' %}">
+            <img class="logo_img" src="/media/main.png">
+        </a>
+
+
+    </div>
+
+    <div class="content1">
+        <div class="login_form">
+            <form method="POST" role="form" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input type="text" class="log_form" name="username" id="username0" placeholder="Ваш нікнейм">
+            <input type="password" class="log_form" name="password" id="password0" placeholder="Пароль">
+            <button type="submit" class="butt_green">Війти</button>
+
+            </form>
+        </div>
+
+        <div class="login_form">
+            <form enctype="multipart/form-data" action="{% url 'registration' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" class="log_form" name="username" id="username" placeholder="Ваш нікнейм">
+            <input type="email" class="log_form" name="email" id="email" placeholder="Електрона пошта">
+            <input type="password" class="log_form" name="password1" id="password1" placeholder="Пароль">
+            <input type="password" class="log_form" name="password2" id="password2" placeholder="Підтвердження">
+
+            <button type="submit" class="butt_green">Зареєструватись</button>
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

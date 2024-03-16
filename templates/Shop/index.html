@@ -1,0 +1,33 @@
+{% extends "Shop/base.html" %}
+
+{% block base %}
+
+
+<div class="logo">
+    <a class="head_a" href="{% url 'index' %}">
+        <img class="logo_img" src="/media/main.png">
+    </a>
+
+
+</div>
+
+<div class="content">
+
+    {% for prod in products %}
+        <div class="product">
+            <div class="img_div">
+                <img class="prod_img" src="{{ prod.img.url }}">
+            </div>
+            <p class="title">{{ prod.name }}</p>
+            <p class="title">Ціна {{ prod.price }} грн</p>
+            <a class="prod_link" href="{% url 'product' id=prod.id %}">Детальніше</a>
+        </div>
+
+    {% endfor %}
+
+
+    <div class="clear"></div>
+
+</div>
+
+{% endblock %}

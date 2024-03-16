@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    {% load static %}
+
+    <link href="{% static 'Shop/css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="/media/ico.png" type="image/x-icon">
+</head>
+<body>
+    <div class="head">
+        <div class="navig">
+        <nav>
+            <ul id="nav">
+                  <li id="li"><a class="head_a" href="{% url 'index' %}">SHOP</a></li>
+            </ul>
+
+        </nav>
+
+        </div>
+        <div class="navig1">
+            {% if user.is_authenticated %}
+
+            <a class="user_r" href="{% url 'logout' %}" onclick="return confirm('Ви впевнені, що хочете вийти?')">logout</a>
+            <a class="user_r" href="{% url 'user' %}">{{ user.username }}</a>
+            <a class="user_r" href="{% url 'admin:index' %}">Admin</a>
+
+            {% else %}
+
+            <a class="user_r" href="{% url 'login' %}">login</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+        {% block base %}
+
+        {% endblock %}
+
+</body>
+    <script src="{% static 'Shop/js/script.js' %}"></script>
+</html>

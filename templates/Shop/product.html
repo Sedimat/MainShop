@@ -1,0 +1,31 @@
+{% extends "Shop/base.html" %}
+
+{% block base %}
+
+<div class="content">
+
+        <div class="product_big">
+
+            <div class="img_div_big">
+                <img class="prod_img_big" src="{{ product.img.url }}">
+            </div>
+
+            <div class="form_div_big">
+                <p class="title0">{{ product.name }}</p>
+                <p class="title0">Ціна {{ product.price }} грн</p>
+
+                <div class="clear0">
+                    <a class="prod_link0" href="{% url 'buy' id=product.id %}">Купити</a>
+                </div>
+
+            </div>
+
+            <p class="title0">{{ product.description }}</p>
+
+        </div>
+
+    <div class="clear"></div>
+
+</div>
+
+{% endblock %}
