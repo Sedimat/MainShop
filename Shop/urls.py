@@ -10,4 +10,11 @@ urlpatterns = [
     path("product/<int:id>", views.product, name="product"),
     path("buy/<int:id>", views.buy, name="buy"),
     path("user", views.user, name='user'),
+    path("news", views.news, name='news'),
+    path("shop", views.shop, name='shop'),
+    path("mode", views.mode, name='mode'),
+    path("support", views.support, name='support'),
+    path("rules", views.rules, name='rules'),
+    path("src", views.src, name='src'),
+
 ]

@@ -1,0 +1,43 @@
+{% extends "Shop/base.html" %}
+
+{% block base %}
+
+<div class="content">
+    <div class="rules">
+        <p class="rule_title">Пошуковик</p>
+        <form method="POST" role="form" action="{% url 'src' %}">
+            {% csrf_token %}
+            <input type="text" class="log_form" name="src" id="username0" placeholder="Запитайте">
+
+            <button type="submit" class="butt_green">🔎</button>
+
+        </form>
+
+        {% for rul in rules %}
+
+            <p class="rule_title">{{ forloop.counter }}: {{ rul.title }}</p>
+            <p class="rule_description">{{ rul.description }}</p>
+
+        {% endfor %}
+
+
+    </div>
+
+    <div class="rules">
+
+        {% for f in faq %}
+
+            <p class="rule_title">{{ forloop.counter }}: {{ f.title }}</p>
+            <p class="rule_description">{{ f.question }}</p>
+            <p class="faq_answer">{{ f.answer }}</p>
+
+        {% endfor %}
+
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+{% endblock %}

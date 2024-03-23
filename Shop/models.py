@@ -23,6 +23,7 @@ class Products(models.Model):
     description = models.TextField(blank=True, verbose_name="Опис")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Ціна товару")
     discont = models.DecimalField(max_digits=100, decimal_places=0, verbose_name="Знижка")
+    number = models.DecimalField(max_digits=10, decimal_places=0, default=0, verbose_name="Проданих")
 
     def __str__(self):
         return self.name
@@ -55,3 +56,38 @@ class UserBuying(models.Model):
     class Meta:
         verbose_name = "Покупка користувача"
         verbose_name_plural = "Покупки користувача"
+
+class Rules(models.Model):
+    title = models.CharField(max_length=100, verbose_name="Заголовок")
+    description = models.TextField(blank=True, verbose_name="Опис")
+
+    def __str__(self):
+        return f'Правило: {self.title}'
+
+    class Meta:
+        verbose_name = "Правило"
+        verbose_name_plural = "Правила"
+
+class FAQ(models.Model):
+    title = models.CharField(max_length=100, verbose_name="Заголовок")
+    question = models.TextField(blank=True, verbose_name="Питання")
+    answer = models.TextField(blank=True, verbose_name="Відповідь")
+
+    def __str__(self):
+        return f'Запитання: {self.title}'
+
+    class Meta:
+        verbose_name = "📊 Поширене запитання"
+        verbose_name_plural = "📊 Поширені запитання"
+
+class Question(models.Model):
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Користувач")
+    question = models.TextField(blank=True, verbose_name="Питання")
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Запитання від: {self.id_user}'
+
+    class Meta:
+        verbose_name = "💢 Запитання"
+        verbose_name_plural = "💢 Запитання"

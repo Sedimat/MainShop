@@ -1,8 +1,10 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
 from .forms import UserRegistrationForm
-from .models import UserProfile, Products, ProductKeys, UserBuying
+from .models import UserProfile, Products, ProductKeys, UserBuying, Rules, FAQ
+
 
 # Create your views here.
 def index(request):
@@ -87,3 +89,55 @@ def buy(request, id=None):
             print("Менше", result)
 
     return redirect(f'/product/{id}')
+
+
+def news(request):
+    context = {}
+
+    return render(request, 'Shop/news.html', context=context)
+
+
+def shop(request):
+    context = {}
+    products = Products.objects.all()
+    context.update({"products": products})
+
+    return render(request, 'Shop/shop.html', context=context)
+
+
+def mode(request):
+    context = {}
+
+    return render(request, 'Shop/mode.html', context=context)
+
+
+def support(request):
+    context = {}
+    faq = FAQ.objects.all()
+    context.update({"faq": faq})
+
+    return render(request, 'Shop/support.html', context=context)
+
+
+def rules(request):
+    context = {}
+    rules = Rules.objects.all()
+    context.update({"rules": rules})
+
+    return render(request, 'Shop/rules.html', context=context)
+
+
+def src(request):
+    context = {}
+    if request.method == "POST":
+        src = request.POST.get('src')
+        rules = Rules.objects.filter(Q(title__icontains=src.lower()) | Q(description__icontains=src.lower())
+                                     | Q(title__icontains=src.capitalize()) | Q(description__icontains=src.capitalize())
+                                     | Q(title__icontains=src.upper()) | Q(description__icontains=src.upper()))
+
+        context.update({"rules": rules})
+
+    faq = FAQ.objects.all()
+    context.update({"faq": faq})
+
+    return render(request, 'Shop/support.html', context=context)

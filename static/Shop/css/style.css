@@ -14,10 +14,19 @@ p {
 
 .head{
     margin: auto;
-    background-color: #0a0a08;
     padding: 0px;
     width: 1200px;
-    display: flex;
+}
+
+.navig{
+    float: left;
+    background-color: #0a0a08;
+}
+
+.navig1{
+    float: right;
+    background-color: green;
+
 }
 
 .logo{
@@ -80,13 +89,6 @@ p {
     margin: 20px 20px 20px 20px;
 }
 
-.navig{
-    width: 600px;
-}
-
-.navig1{
-    width: 600px;
-}
 
 .head_a{
     text-decoration: none;
@@ -264,6 +266,34 @@ p {
 .user_inf{
     margin: 0px;
     padding: 0px;
+    font-family: Verdana;
+    font-size: 15px;
+    color: white;
+}
+
+.rules{
+    width: 1180px;
+    margin: 10px;
+    background-color: #1f2733;
+
+}
+
+.rule_title{
+    padding: 10px;
+    font-family: Verdana;
+    font-size: 22px;
+    color: white;
+}
+
+.rule_description{
+    padding: 10px 10px 10px 30px;
+    font-family: Verdana;
+    font-size: 15px;
+    color: white;
+}
+
+.faq_answer{
+    padding: 10px 10px 10px 50px;
     font-family: Verdana;
     font-size: 15px;
     color: white;
