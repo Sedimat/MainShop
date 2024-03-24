@@ -2,14 +2,51 @@
 
 {% block base %}
 
-<div class="content">
+<div class="content_mode">
 
-    <div class="product">
+    <div class="strem">
+        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
+        <p class="title0">Тут будуть стріми</p>
+    </div>
 
-        <p class="title0">Тест режими</p>
-
+    <div class="strem">
+        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
+        <p class="title0">Тут будуть стріми</p>
     </div>
     <div class="clear"></div>
+
+</div>
+
+<div class="content_mode">
+
+
+        {% for mod in mode %}
+        <div class="mode_div">
+
+        {% if forloop.counter|divisibleby:2 %}
+            <div class="img_mode_r">
+                <img class="img_mod" src="{{ mod.avatar.url }}">
+            </div>
+            <p class="title">{{ mod.title }}</p>
+            <p class="rule_description">{{ mod.description|truncatewords:70 }}</p>
+            <a class="prod_link" href="#">Детальніше</a>
+
+
+        {% else %}
+            <div class="img_mode_l">
+                <img class="img_mod" src="{{ mod.avatar.url }}">
+            </div>
+            <p class="title">{{ mod.title }}</p>
+            <p class="rule_description">{{ mod.description|truncatewords:70 }}</p>
+            <a class="prod_link" href="#">Детальніше</a>
+
+
+        {% endif %}
+
+        </div>
+        {% endfor %}
+
+
 
 </div>
 

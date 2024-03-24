@@ -42,6 +42,25 @@
         {% block base %}
 
         {% endblock %}
+    <footer>
+        <div class="foot_link">
+            <nav>
+            <ul>
+                <li><a class="rule_description" href="{% url 'index' %}">Головна</a></li>
+                <li><a class="rule_description" href="{% url 'news' %}">Новини</a></li>
+                <li><a class="rule_description" href="{% url 'mode' %}">Режими</a></li>
+                <li><a class="rule_description" href="{% url 'shop' %}">Магазин</a></li>
+                <li><a class="rule_description" href="{% url 'support' %}">Підтримка</a></li>
+                <li><a class="rule_description" href="{% url 'rules' %}">Правила</a></li>
+            </ul>
+
+            </nav>
+
+
+        </div>
+
+
+    </footer>
 
 </body>
     <script src="{% static 'Shop/js/script.js' %}"></script>

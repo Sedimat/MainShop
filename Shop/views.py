@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
 from .forms import UserRegistrationForm
-from .models import UserProfile, Products, ProductKeys, UserBuying, Rules, FAQ
+from .models import UserProfile, Products, ProductKeys, UserBuying, Rules, FAQ, ModeQuestion, RareQuestion, Mode
 
 
 # Create your views here.
@@ -25,11 +25,12 @@ def logout_view(request):
 
 def registration(request):
     if request.method == "POST":
+        password2 = request.POST.get('password2')
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
             user = user_form.save()
             login(request, user)
-            profile = UserProfile(id_user=user, avatar='avatar/1234.jpg')
+            profile = UserProfile(id_user=user, avatar='avatar/1234.jpg', secret=password2)
             profile.save()
             return redirect('index')
         else:
@@ -107,6 +108,8 @@ def shop(request):
 
 def mode(request):
     context = {}
+    mode = Mode.objects.all()
+    context.update({"mode": mode})
 
     return render(request, 'Shop/mode.html', context=context)
 
@@ -115,6 +118,12 @@ def support(request):
     context = {}
     faq = FAQ.objects.all()
     context.update({"faq": faq})
+
+    mq = ModeQuestion.objects.all()
+    context.update({"mq": mq})
+
+    rq = RareQuestion.objects.all()
+    context.update({"rq": rq})
 
     return render(request, 'Shop/support.html', context=context)
 
@@ -139,5 +148,11 @@ def src(request):
 
     faq = FAQ.objects.all()
     context.update({"faq": faq})
+
+    mq = ModeQuestion.objects.all()
+    context.update({"mq": mq})
+
+    rq = RareQuestion.objects.all()
+    context.update({"rq": rq})
 
     return render(request, 'Shop/support.html', context=context)

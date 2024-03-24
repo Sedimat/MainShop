@@ -13,6 +13,8 @@
 
         </form>
 
+
+
         {% for rul in rules %}
 
             <p class="rule_title">{{ forloop.counter }}: {{ rul.title }}</p>
@@ -21,9 +23,12 @@
         {% endfor %}
 
 
+
     </div>
 
     <div class="rules">
+
+        <p class="faq_answer">Найчастіші питання</p>
 
         {% for f in faq %}
 
@@ -33,6 +38,33 @@
 
         {% endfor %}
 
+    </div>
+
+    <div class="rules">
+
+        <p class="faq_answer">Питання по режимам</p>
+
+        {% for m in mq %}
+
+            <p class="rule_title">{{ forloop.counter }}: {{ m.title }}</p>
+            <p class="rule_description">{{ m.question }}</p>
+            <p class="faq_answer">{{ m.answer }}</p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="rules">
+
+        <p class="faq_answer">Рідкісні питання</p>
+
+        {% for r in rq %}
+
+            <p class="rule_title">{{ forloop.counter }}: {{ r.title }}</p>
+            <p class="rule_description">{{ r.question }}</p>
+            <p class="faq_answer">{{ r.answer }}</p>
+
+        {% endfor %}
 
     </div>
 
