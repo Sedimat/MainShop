@@ -45,9 +45,11 @@ p {
 }
 
 .logo{
+    position: relative;
     margin: auto;
     padding: 0px;
     width: 1200px;
+    min-height: 670px;
 }
 
 .content_mode{

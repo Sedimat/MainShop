@@ -50,6 +50,7 @@ class UserBuying(models.Model):
     keys = models.CharField(max_length=100, verbose_name="Ключ")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Ціна товару")
     timestamp = models.DateTimeField(auto_now_add=True)
+    secret = models.CharField(max_length=100, default="", verbose_name="Секрет")
 
 
     def __str__(self):
