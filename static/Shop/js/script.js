@@ -24,9 +24,18 @@ if (contentDiv){
         img4.style.left = 15 + 'px';
         img4.style.top = 0 + 'px';
         img4.style.position = 'absolute';
-        img4.src = '/media/paralax/31.png'; // Шлях до зображення
+        img4.src = '/media/paralax/4.jpg'; // Шлях до зображення
         img4.alt = 'Dynamic Image'; // Альтернативний текст
         contentDiv.appendChild(img4);
+
+    var h1 = document.createElement('h1');
+        h1.textContent = 'Delksi'; // Текст кнопки
+        h1.classList.add('logo_title');
+        h1.style.left = '570px';
+        h1.style.top = '-150px';
+        h1.style.position = 'absolute';
+
+        contentDiv.appendChild(h1);
 
     var img3 = document.createElement('img');
         img3.id = 'map3';
@@ -63,6 +72,17 @@ if (contentDiv){
         contentDiv.appendChild(img1);
 
 
+
+setTimeout(function() {
+    // Задаємо плавний перехід для властивості 'top'
+    h1.style.transition = 'top 0.3s linear';
+    // Зміщуємо елемент вниз на 50px
+    h1.style.top = '30px';
+}, 100); // Затримка в мілісекундах перед виконанням коду
+
+
+
+
 var x = window.innerWidth
 var y = window.innerHeight
 
@@ -71,12 +91,14 @@ document.addEventListener('mousemove', function(event) {
     var mouseY = event.clientY;
     if (x / 2 > mouseX){
         play(img1, -20)
-        play(img2, -10)
-        play(img3, 285)
+        play(img2, -15)
+        play(img3, 283)
+        play(h1, 560)
     }else{
         play(img1, 0)
-        play(img2, 10)
-        play(img3, 290)
+        play(img2, 15)
+        play(img3, 293)
+        play(h1, 580)
     }
 });
 
@@ -116,7 +138,7 @@ if (button_div) {
     function right() {
         slider.scrollBy({
             top: 0,
-            left: 300,
+            left: 610,
             behavior: 'smooth'
         });
     }
@@ -124,7 +146,7 @@ if (button_div) {
     function left() {
         slider.scrollBy({
             top: 0,
-            left: -300,
+            left: -610,
             behavior: 'smooth'
         });
     }

@@ -11,10 +11,13 @@ urlpatterns = [
     path("buy/<int:id>", views.buy, name="buy"),
     path("user", views.user, name='user'),
     path("news", views.news, name='news'),
+    path("new/<int:id>", views.new, name="new"),
     path("shop", views.shop, name='shop'),
     path("mode", views.mode, name='mode'),
+    path("mod/<int:id>", views.mod, name='mod'),
     path("support", views.support, name='support'),
     path("rules", views.rules, name='rules'),
     path("src", views.src, name='src'),
+
 
 ]

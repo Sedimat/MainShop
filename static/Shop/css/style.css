@@ -54,6 +54,13 @@ p {
     overflow-x: hidden;
 }
 
+.logo_title{
+    font-family: fantasy;
+    font-size: 80px;
+    color: white;
+    font-style: oblique
+}
+
 .slider{
     margin: auto;
     padding: 0px;
@@ -166,6 +173,8 @@ p {
     padding: 20px;
     width: 250px;
 }
+
+
 .img_div{
     display: flex;
     justify-content: center; /* Центрування по горизонталі */
@@ -221,6 +230,12 @@ p {
     max-height: 380px;
 }
 
+.new_img_big{
+    margin: 50px;
+    max-width: 700px;
+    max-height: 700px;
+}
+
 
 .title{
     padding: 5px 10px 5px 10px;
@@ -231,6 +246,14 @@ p {
 
 .title0{
     padding: 20px 10px 5px 10px;
+    font-family: Verdana;
+    font-size: 20px;
+    color: white;
+}
+
+.title01{
+    float: right;
+    padding: 20px 20px 20px 20px;
     font-family: Verdana;
     font-size: 20px;
     color: white;
@@ -345,6 +368,16 @@ p {
     font-family: Verdana;
     font-size: 15px;
     color: white;
+}
+
+
+.events{
+    display: inline-block; /* Розміщуємо всі блоки в ряду */
+    margin: 10px 10px 0px 10px;
+    width: 580px;
+    height: 270px;
+    border-radius: 15px;
+    background-color: #1f2733;
 }
 
 .strem{

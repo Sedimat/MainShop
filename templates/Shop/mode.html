@@ -27,18 +27,19 @@
             <div class="img_mode_r">
                 <img class="img_mod" src="{{ mod.avatar.url }}">
             </div>
-            <p class="title">{{ mod.title }}</p>
+            <a class="title" href="{% url 'mod' id=mod.id %}" >{{ mod.title }}</a>
             <p class="rule_description">{{ mod.description|truncatewords:70 }}</p>
-            <a class="prod_link" href="#">Детальніше</a>
+            <a class="prod_link" href="{% url 'mod' id=mod.id %}">Детальніше</a>
+
 
 
         {% else %}
             <div class="img_mode_l">
                 <img class="img_mod" src="{{ mod.avatar.url }}">
             </div>
-            <p class="title">{{ mod.title }}</p>
+            <a class="title" href="{% url 'mod' id=mod.id %}" >{{ mod.title }}</a>
             <p class="rule_description">{{ mod.description|truncatewords:70 }}</p>
-            <a class="prod_link" href="#">Детальніше</a>
+            <a class="prod_link" href="{% url 'mod' id=mod.id %}">Детальніше</a>
 
 
         {% endif %}

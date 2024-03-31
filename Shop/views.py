@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
 from .forms import UserRegistrationForm
-from .models import UserProfile, Products, ProductKeys, UserBuying, Rules, FAQ, ModeQuestion, RareQuestion, Mode
+from .models import UserProfile, Products, ProductKeys, UserBuying, Rules, FAQ, ModeQuestion, RareQuestion, Mode, News
 
 
 # Create your views here.
@@ -94,8 +94,17 @@ def buy(request, id=None):
 
 def news(request):
     context = {}
+    news = News.objects.all().order_by("-timestamp")
+    context.update({"news": news})
 
     return render(request, 'Shop/news.html', context=context)
+
+def new(request, id=None):
+    context = {}
+    new = News.objects.get(id=id)
+    context.update({"new": new})
+
+    return render(request, 'Shop/new.html', context=context)
 
 
 def shop(request):
@@ -112,6 +121,13 @@ def mode(request):
     context.update({"mode": mode})
 
     return render(request, 'Shop/mode.html', context=context)
+
+def mod(request, id=None):
+    context = {}
+    mod = Mode.objects.get(id=id)
+    context.update({"mod": mod})
+
+    return render(request, 'Shop/mod.html', context=context)
 
 
 def support(request):
@@ -156,3 +172,5 @@ def src(request):
     context.update({"rq": rq})
 
     return render(request, 'Shop/support.html', context=context)
+
+

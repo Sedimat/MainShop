@@ -133,3 +133,18 @@ class Mode(models.Model):
         verbose_name = "Режим"
         verbose_name_plural = "Режими"
 
+
+class News(models.Model):
+    n_img = models.ImageField(upload_to='news', default='news/news.jpg')
+    title = models.CharField(max_length=100, verbose_name="Заголовок")
+    description = models.TextField(blank=True, verbose_name="Опис")
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f'Новина: {self.title}'
+
+    class Meta:
+        verbose_name = "Новина"
+        verbose_name_plural = "🌒 Новини"
+

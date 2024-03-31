@@ -3,30 +3,30 @@
 {% block base %}
 <div class="slider">
 
-    <div class="strem">
-        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-        <p class="title0">Тут будуть стріми</p>
+    <div class="events">
+        <img class="prod_img" src="media/main.png">
+        <a class="prod_link" href="#">Перейти</a>
+        <p class="title01">Тут події 1</p>
     </div>
 
-    <div class="strem">
-        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-        <p class="title0">Тут будуть стріми</p>
+    <div class="events">
+        <img class="prod_img" src="media/main.png">
+        <a class="prod_link" href="#">Перейти</a>
+        <p class="title01">Тут події 2</p>
     </div>
 
-    <div class="strem">
-        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-        <p class="title0">Тут будуть стріми</p>
+    <div class="events">
+        <img class="prod_img" src="media/main.png">
+        <a class="prod_link" href="#">Перейти</a>
+        <p class="title01">Тут події 3</p>
     </div>
 
-    <div class="strem">
-        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-        <p class="title0">Тут будуть стріми</p>
+    <div class="events">
+        <img class="prod_img" src="media/main.png">
+        <a class="prod_link" href="#">Перейти</a>
+        <p class="title01">Тут події 4</p>
     </div>
 
-    <div class="strem">
-        <img class="prod_img" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-        <p class="title0">Тут будуть стріми</p>
-    </div>
     <div class="clear"></div>
 </div>
 
@@ -35,31 +35,33 @@
 </div>
 
 
-
 <div class="content_mode">
 
+    {% for new in news %}
     <div class="mode_div">
 
-            <div class="img_mode_r">
-                <img class="img_mod" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-            </div>
-            <p class="title">Новина тест</p>
-            <p class="rule_description">Lorem Ipsum є псевдо- латинський текст використовується у веб - дизайні, типографіка, верстка, і друку замість англійської підкреслити елементи дизайну над змістом. Це також називається заповнювач ( або наповнювач) текст. Це зручний інструмент для макетів. Це допомагає намітити візуальні елементи в документ або презентацію, наприклад, друкарня, шрифт, або макет. Lorem Ipsum в основному частиною латинського тексту за класичною автор і філософа Цицерона. Це слова і букви були змінені додаванням або …</p>
-            <a class="prod_link" href="#">Детальніше</a>
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="img_mode_r">
+            <img class="img_mod" src="{{ new.n_img.url }}">
+        </div>
+        <a class="title" href="{% url 'new' id=new.id %}">{{ new.title }}</a>
+        <p class="rule_description">{{ new.description|truncatewords:70 }}</p>
+        <a class="prod_link" href="{% url 'new' id=new.id %}">Детальніше</a>
+
+
+        {% else %}
+        <div class="img_mode_l">
+            <img class="img_mod" src="{{ new.n_img.url }}">
+        </div>
+        <a class="title" href="{% url 'new' id=new.id %}">{{ new.title }}</a>
+        <p class="rule_description">{{ new.description|truncatewords:70 }}</p>
+        <a class="prod_link" href="{% url 'new' id=new.id %}">Детальніше</a>
+
+
+        {% endif %}
 
     </div>
-    <div class="mode_div">
-
-            <div class="img_mode_l">
-                <img class="img_mod" src="https://lifehacki.ru/wp-content/uploads/2022/07/Twich.jpg">
-            </div>
-            <p class="title">Новина тест</p>
-            <p class="rule_description">Lorem Ipsum є псевдо- латинський текст використовується у веб - дизайні, типографіка, верстка, і друку замість англійської підкреслити елементи дизайну над змістом. Це також називається заповнювач ( або наповнювач) текст. Це зручний інструмент для макетів. Це допомагає намітити візуальні елементи в документ або презентацію, наприклад, друкарня, шрифт, або макет. Lorem Ipsum в основному частиною латинського тексту за класичною автор і філософа Цицерона. Це слова і букви були змінені додаванням або …</p>
-            <a class="prod_link" href="#">Детальніше</a>
-
-
-
-    </div>
+    {% endfor %}
 
 
 </div>
